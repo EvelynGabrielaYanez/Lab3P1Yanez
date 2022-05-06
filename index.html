@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--<link rel="stylesheet" href="./css/estilo.css">-->
+  <style>
+    *,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    #cuerpoPrincipal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: grey;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #formABM {
+      background-color: deepskyblue;
+      padding: 2vh;
+      height: 40vh;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      min-height: 400px;
+      min-width: 40vh;
+    }
+
+    #registros {
+      background-color: blanchedalmond;
+      padding: 2vh;
+    }
+
+    td {
+      border: 2px solid black;
+      text-align: left;
+      padding: 1px;
+    }
+
+    th {
+      border: 2px solid black;
+      text-align: center;
+    }
+
+    .cuerpoTabla {
+      margin-top: 10px;
+    }
+
+    .cuerpoTabla table {
+      width: 100%;
+      margin: 5px auto 10px;
+      border: 2px solid black;
+    }
+
+    .botoneraPie {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 10px;
+    }
+
+    .btnColumna {
+      width: 100%;
+    }
+
+    .labelABM {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h3 {
+      text-align: left;
+      font-size: x-large;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cuerpoPrincipal">
+    <div id="registros">
+      <div class="titulo">
+        <h3>Form Datos</h3>
+      </div>
+      <div class="labelTabla">
+        <label for="filtro">Filtro:</label>
+        <select name="filtro" id="filtro">
+          <option value="Todos">Todos</option>
+          <option value="Alumnos">Alumnos</option>
+          <option value="Docentes">Docentes</option>
+        </select>
+      </div>
+      <div class="labelTabla">
+        <label for="id">Valor Promedio DNIs:</label>
+        <input id="idPromedio" type="text">
+        <input id="btnCalcularPormId" type="button" value="Calcular">
+      </div>
+      <div class="cuerpoTabla">
+        <div>
+          <input type="checkbox" id="chkID" name="chkID" value="idColum">
+          <label for="chkID">ID</label>
+          <input type="checkbox" id="chkDni" name="chkDni" value="dniColum">
+          <label for="chkDni">DNI</label>
+          <input type="checkbox" id="chkApellido" name="chkApellido" value="apellidoColum">
+          <label for="chkApellido">APELLIDO</label>
+          <input type="checkbox" id="chkNombre" name="chkNombre" value="nombreColum">
+          <label for="chkNombre">NOMBRE</label>
+          <input type="checkbox" id="chkCursoNumero" name="chkCursoNumero" value="cursoNumeroColum">
+          <label for="chkCursoNumero">CURSO NUMERO</label>
+          <input type="checkbox" id="chkCursoLetra" name="chkCursoLetra" value="cursoLetraColum">
+          <label for="chkCursoLetra">CURSO LETRA</label>
+          <input type="checkbox" id="chkMateria" name="chkMateria" value="materiaColum">
+          <label for="chkMateria">MATERIA</label>
+          <input type="checkbox" id="chkAño" name="chkAño" value="añoColum">
+          <label for="chkAño">AÑO</label>
+        </div>
+        <table id="tabla">
+          <thead>
+            <tr>
+              <th id="idColum"><button class="btnColumna" id="btnId">ID</button></th>
+              <th id="dniColum"><button class="btnColumna" id="btnDni">DNI</button></th>
+              <th id="apellidoColum"><button class="btnColumna" id="btnApellido">APELLIDO</button></th>
+              <th id="nombreColum"><button class="btnColumna" id="btnNombre">NOMBRE</button></th>
+              <th id="cursoNumeroColum"><button class="btnColumna" id="btnCursoNumero">CURSO NUMERO</button></th>
+              <th id="cursoLetraColum"><button class="btnColumna" id="btnCursoLetra">CURSO LETRA</button></th>
+              <th id="materiaColum"><button class="btnColumna" id="btnMateria">MATERIA</button></th>
+              <th id="añoColum"><button class="btnColumna" id="btnAño">AÑO</button></th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo">
+          </tbody>
+        </table>
+      </div>
+      <div class="botoneraPie">
+        <input id="btnAgregarTabla" type="button" value="Agregar">
+      </div>
+    </div>
+    <div id="formABM">
+      <div class="titulo">
+        <h3 id = "tituloABM">Form Alta/Modificacion/Eliminacion</h3>
+      </div>
+      <div class="labelABM">
+        <label for="idForm">ID</label>
+        <input name="idForm" id="idForm" type="number">
+      </div>
+      <div class="labelABM">
+        <label for="dniForm">DNI</label>
+        <input name="dniForm" id="dniForm" type="number">
+      </div>
+      <div class="labelABM">
+        <label for="apellidoForm">Apellido</label>
+        <input name="apellidoForm" id="apellidoForm" type="text">
+      </div>
+      <div class="labelABM">
+        <label for="nombreForm">Nombre</label>
+        <input name="nombreForm" id="nombreForm" type="text">
+      </div>
+      <div class="labelABM">
+        <label for="tipoUsuario">Tipo:</label>
+        <select name="tipoUsuario" id="tipoUsuario">
+          <option value="Alumno">Alumno</option>
+          <option value="Docente">Docente</option>
+        </select>
+      </div>
+      <div class="labelABM" id = "grupoCursoLetra">
+        <label for="cursoLetraForm" id="lblCursoLetraForm">Curso Letra:</label>
+        <input name="cursoLetraForm" id="cursoLetraForm" type="text">
+      </div>
+      <div class="labelABM" id = "grupoCursoNumero">
+        <label for="cursoNumeroForm" id="lblCursoNumeroForm">Curso Numero:</label>
+        <input name="cursoNumeroForm" id="cursoNumeroForm" type="number">
+      </div>
+      <div class="labelABM" id = "grupoMateriaForm">
+        <label for="materiaForm" id="lblMateriaForm">Materia:</label>
+        <input name="materiaForm" id="materiaForm" type="text">
+      </div>
+      <div class="labelABM" id = "grupoAñoForm">
+        <label for="añoForm" id="lblAñoForm">Año</label>
+        <input name="añoForm" id="añoForm" type="number">
+      </div>
+      <div class="botoneraPie" >
+        <input id="btnAgregarForm" type="button" value="Agregar">
+        <input id="btnModificarForm" type="button" value="Modificar">
+        <input id="btnEliminarForm" type="button" value="Eliminar">
+        <input id="btnCancelarForm" type="button" value="Cancelar">
+      </div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/clases.js"></script>
+</html>
