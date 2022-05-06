@@ -39,10 +39,10 @@ class Persona {
     this.apellido = value.toUpperCase();
   }
   toString() {
-    const retorno = `Id: ${this.Nombre}\
-    Dni: ${this.Nombre}\
+    const retorno = `Id: ${this.Id}\
+    Dni: ${this.Dni}\
     Nombre: ${this.Nombre}\
-    Apellido: ${this.cursoNumero}`;
+    Apellido: ${this.Apellido}`;
     return retorno;
   }
 }
